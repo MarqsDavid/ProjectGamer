@@ -6,7 +6,8 @@ let cloud = document.querySelector(".cloud");
 let score = document.querySelector("#score");
 let gameOver = document.querySelector("#gameOver");
 let text1 = document.querySelector("#text1");
-
+audioStart = new Audio('./audio/theme.mp3')
+audioGameOver = new Audio('./audio/gameover.mp3')
 
 //declaring variable for score
 let interval = null;
@@ -16,7 +17,7 @@ let playerScore = 0;
 //function for score
 let scoreCounter = () => {
     playerScore++;
-    score.innerHTML = `Score <b>${playerScore}</b>`;
+    score.innerHTML = `Score <b>${playerScore}</b>`; 
 }
 
 
@@ -25,7 +26,6 @@ let scoreCounter = () => {
 const start = () => {
 
     document.getElementById("text1").style.color = "rgb(236, 236, 236)";
-
     block.classList.add('block-animation');
 
     mario.src = './images/mario.gif';
@@ -83,12 +83,24 @@ let result = setInterval(() => {
 
 
              
-        gameOver.style.display = "block";
-        block.classList.remove("blockActive");
+        gameOver.style.display = "block";  
+        block.classList.remove("blockActive"); 
         road.firstElementChild.style.animation = "none";
         cloud.firstElementChild.style.animation = "none";
         clearInterval(interval);
         playerScore = 0;
+
+        function stopAudioStart(){
+            audioStart.pause();
+            }stopAudioStart();
+
+        audioGameOver.play();
+
+        function stopAudio(){
+            audioGameOver.pause();
+            }setTimeout(stopAudio, 8000);
+
+        clearInterval(checkGameOver);
         
     }
 
