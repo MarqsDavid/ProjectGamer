@@ -1,61 +1,159 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.game-board {
-  width: 80%;
-  height: 500px;
-  border: 1px solid #333;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-}
-.pipe {
-  position: absolute;
-  bottom: 0;
-  width: 80px;
-  animation: pipe-animation 2s infinite linear;
-}
-.mario {
-  position: absolute;
-  width: 160px;
-  bottom: 0;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
 }
 
-.jump {
-  animation: jump 500ms ease-out;
+body {
+    background-color: rgb(236, 236, 236);
 }
 
-@keyframes pipe-animation {
-  from {
-    right: -80px;
-  }
-
-  to {
-    right: 100%;
-  }
+#container {
+    width: 100%;
+    height: 500px;
+    border-top: 800px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87CEE8, #E0F6FF);
 }
 
-@keyframes jump {
-  
-  0% {
+#container #mario {
+    height: 100px;
+    width: 100x;
+    position: absolute;
+    bottom: 28px;
+    left: 20px;
+}
+
+#container #mario img {
+    height: 100px;
+    width: 100px;
+}
+
+.marioActive {
+    animation: animateMario 0.5s linear infinite;
+}
+
+@keyframes animateMario {
+
+    0%,
+    100% {
+        bottom: 28px;
+    }
+
+    45%,
+    55% {
+        bottom: 160px;
+    }
+}
+
+#container #block {
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    bottom: 20px;
+    right: -20px;
+}
+
+#container #block img {
+    height: 80px;
+    width: 80px;
+}
+
+.blockActive {
+    animation: blockAnimate 1.1s linear infinite;
+}
+
+@keyframes blockAnimate {
+    0% {
+        right: -125px;
+    }
+
+    100% {
+        right: 100%;
+    }
+}
+
+#container #road {
+    height: 30px;
+    width: 1200px;
+    position: absolute;
     bottom: 0;
-  }
-
-  40% {
-    bottom: 180px;
-  }
-
-  50% {
-    bottom: 180px;
-  }
-
-  60% {
-    bottom: 180px;
-  }
-
-  100% {
-    bottom: 0;
-  }
 }
+
+#container #road img {
+    height: 30px;
+    width: 2000px;
+    position: absolute;
+    left: 0;
+    animation: none;
+}
+
+@keyframes roadAnimate {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -800px;
+    }
+}
+
+
+#container .cloud {
+    position: absolute;
+    width: 550px;
+    padding-top: 50px;
+    z-index: 4;
+}
+
+#container .cloud img {
+    height: 100px;
+    width: 500px;
+    position: absolute;
+    right: -2000px;
+    animation: none;
+}
+
+
+@keyframes cloudAnimate {
+    0% {
+        right: -2000px;
+    }
+
+    100% {
+        right: 100%;
+    }
+}
+
+
+
+#score {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+
+
+#gameOver {
+    display: none;
+    font-size: 70px;
+    position: absolute;
+    left: calc(26% - 130px);
+    top: calc(50% - 40px);
+    width: 362px;
+    height: 80px;
+    color: #525252;
+}
+ 
+#text1 {
+    font-family:'Roboto Mono', monospace;
+    padding: 50px;
+    text-align: center;
+    color: black;
+}
+
