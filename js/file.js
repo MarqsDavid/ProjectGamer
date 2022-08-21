@@ -2,7 +2,6 @@ let container = document.querySelector("#container");
 let dino = document.querySelector("#mario");
 let block = document.querySelector("#block");
 let road = document.querySelector("#road");
-let cloud = document.querySelector(".cloud");
 let score = document.querySelector("#score");
 let gameOver = document.querySelector("#gameOver");
 let text1 = document.querySelector("#text1");
@@ -20,25 +19,16 @@ let scoreCounter = () => {
     score.innerHTML = `Score <b>${playerScore}</b>`; 
 }
 
+// start audio
 
-//start Game
-
-const start = () => {
-
-    document.getElementById("text1").style.color = "rgb(236, 236, 236)";
-    block.classList.add('block-animation');
-
-    mario.src = './images/mario.gif';
-    mario.style.width = '150px';
-    mario.style.marginLeft = '50px';
-        
-
+const start = () => {        
     audioStart.play();
 }
 
 document.addEventListener('keydown', start);
 
 
+//start Game
 
 window.addEventListener("keydown", (start) => {
     //    console.log(start);
@@ -46,8 +36,8 @@ window.addEventListener("keydown", (start) => {
         gameOver.style.display = "none";
         block.classList.add("blockActive");
         road.firstElementChild.style.animation = "roadAnimate 1.5s linear infinite";
-        cloud.firstElementChild.style.animation = "cloudAnimate 2s linear infinite";
-            
+        document.getElementById("text1").style.color = "rgb(236, 236, 236)";
+
         //score
         let playerScore = 0;
         interval = setInterval(scoreCounter, 200);
@@ -70,6 +60,7 @@ window.addEventListener("keydown", (e) => {
         }
 });
 
+
 //'Game Over' if 'Character' hit The 'Block' 
 let result = setInterval(() => {
     let marioBottom = parseInt(getComputedStyle(mario).getPropertyValue("bottom"));
@@ -86,7 +77,7 @@ let result = setInterval(() => {
         gameOver.style.display = "block";  
         block.classList.remove("blockActive"); 
         road.firstElementChild.style.animation = "none";
-        cloud.firstElementChild.style.animation = "none";
+        // cloud.firstElementChild.style.animation = "none";
         clearInterval(interval);
         playerScore = 0;
 
@@ -94,13 +85,7 @@ let result = setInterval(() => {
             audioStart.pause();
             }stopAudioStart();
 
-        audioGameOver.play();
-
-        function stopAudio(){
-            audioGameOver.pause();
-            }setTimeout(stopAudio, 8000);
-
-        clearInterval(checkGameOver);
+        audioGameOver.play();       
         
     }
 

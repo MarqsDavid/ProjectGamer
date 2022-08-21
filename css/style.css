@@ -1,8 +1,7 @@
 
 * {
-    padding: 0;
     margin: 0;
-    font-family: sans-serif;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -11,13 +10,12 @@ body {
 }
 
 #container {
-    width: 100%;
+    width: 100%;  
     height: 500px;
-    border-top: 800px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(#87CEE8, #E0F6FF);
+    background: linear-gradient(#87ceeb, #e0f6ff);
 }
 
 #container #mario {
@@ -84,9 +82,10 @@ body {
     bottom: 0;
 }
 
+
 #container #road img {
     height: 30px;
-    width: 2000px;
+    width: 3000px;
     position: absolute;
     left: 0;
     animation: none;
@@ -103,28 +102,78 @@ body {
 }
 
 
-#container .cloud {
-    position: absolute;
-    width: 550px;
-    padding-top: 50px;
-    z-index: 4;
-}
 
-#container .cloud img {
+
+#cloud1 {
     height: 100px;
-    width: 500px;
+    width: 450px;
     position: absolute;
     right: -2000px;
     animation: none;
 }
 
 
+
+#cloud2 {
+    position: absolute;
+    width: 270px;
+    padding-top: 150px;
+    z-index: 3;
+    animation: clouds-animation-2 50s infinite linear;
+}
+#cloud3 {
+    position: absolute;
+    width: 150px;
+    padding-top: 300px;
+    z-index: 2;
+    animation: clouds-animation-3 75s infinite linear;
+}
+
+#cloud4 {
+    position: absolute;
+    width: 300px;
+    padding-top: 50px;
+    z-index: 4;
+    animation: clouds-animation-1 40s infinite linear;
+}
+
+
+
+@keyframes clouds-animation-1 {
+    from{
+        right: -550px;
+    }
+    to{
+        right: 100%;
+    }
+}
+
+@keyframes clouds-animation-2 {
+    from{
+        right: -1300px;
+    }
+    to{
+        right: 100%;
+    }
+}
+
+@keyframes clouds-animation-3 {
+    from{
+        right: -250px;
+    }
+    to{
+        right: 100%;
+    }
+}
+
+
+
 @keyframes cloudAnimate {
-    0% {
+    from{
         right: -2000px;
     }
 
-    100% {
+    to{
         right: 100%;
     }
 }
