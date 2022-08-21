@@ -1,12 +1,14 @@
 let container = document.querySelector("#container");
-let dino = document.querySelector("#mario");
+let mario = document.querySelector("#mario");
 let block = document.querySelector("#block");
+let grass= document.querySelector("#grass");
 let road = document.querySelector("#road");
 let score = document.querySelector("#score");
 let gameOver = document.querySelector("#gameOver");
 let text1 = document.querySelector("#text1");
 audioStart = new Audio('./audio/theme.mp3')
 audioGameOver = new Audio('./audio/gameover.mp3')
+
 
 //declaring variable for score
 let interval = null;
@@ -41,6 +43,7 @@ window.addEventListener("keydown", (start) => {
         //score
         let playerScore = 0;
         interval = setInterval(scoreCounter, 200);
+            grass.classList.add('grass-animation');
     }
 });
 
@@ -64,22 +67,20 @@ window.addEventListener("keydown", (e) => {
 //'Game Over' if 'Character' hit The 'Block' 
 let result = setInterval(() => {
     let marioBottom = parseInt(getComputedStyle(mario).getPropertyValue("bottom"));
-    //    console.log("dinoBottom" + dinoBottom);
 
     let blockLeft = parseInt(getComputedStyle(block).getPropertyValue("left"));
     //    console.log("BlockLeft" + blockLeft);
 
     if (marioBottom <= 90 && blockLeft >= 20 && blockLeft <= 145) {
         //        console.log("Game Over");
-
-
-             
+          
         gameOver.style.display = "block";  
         block.classList.remove("blockActive"); 
         road.firstElementChild.style.animation = "none";
-        // cloud.firstElementChild.style.animation = "none";
         clearInterval(interval);
         playerScore = 0;
+        
+        document.getElementById("text1").style.color = "rgb(0, 0, 0)";
 
         function stopAudioStart(){
             audioStart.pause();

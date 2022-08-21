@@ -18,6 +18,9 @@ body {
     background: linear-gradient(#87ceeb, #e0f6ff);
 }
 
+ 
+/*=============== Mario ===============*/
+
 #container #mario {
     height: 100px;
     width: 100x;
@@ -48,6 +51,8 @@ body {
     }
 }
 
+/*Tubulação */
+
 #container #block {
     height: 80px;
     width: 80px;
@@ -74,6 +79,8 @@ body {
         right: 100%;
     }
 }
+
+/*Piso*/
 
 #container #road {
     height: 30px;
@@ -104,12 +111,14 @@ body {
 
 
 
+/*Nuvens*/
+
 #cloud1 {
-    height: 100px;
-    width: 450px;
     position: absolute;
-    right: -2000px;
-    animation: none;
+    width: 300px;
+    padding-top: 60px;
+    z-index: 7;;
+    animation: clouds-animation-1 65s infinite linear;
 }
 
 
@@ -134,41 +143,10 @@ body {
     width: 300px;
     padding-top: 50px;
     z-index: 4;
-    animation: clouds-animation-1 40s infinite linear;
+    animation: clouds-animation-1 85s infinite linear;
 }
-
-
 
 @keyframes clouds-animation-1 {
-    from{
-        right: -550px;
-    }
-    to{
-        right: 100%;
-    }
-}
-
-@keyframes clouds-animation-2 {
-    from{
-        right: -1300px;
-    }
-    to{
-        right: 100%;
-    }
-}
-
-@keyframes clouds-animation-3 {
-    from{
-        right: -250px;
-    }
-    to{
-        right: 100%;
-    }
-}
-
-
-
-@keyframes cloudAnimate {
     from{
         right: -2000px;
     }
@@ -179,6 +157,35 @@ body {
 }
 
 
+@keyframes clouds-animation-2 {
+    from{
+        right: -550px;
+    }
+    to{
+        right: 100%;
+    }
+}
+
+@keyframes clouds-animation-3 {
+    from{
+        right: -1300px;
+    }
+    to{
+        right: 100%;
+    }
+}
+
+@keyframes clouds-animation-4 {
+    from{
+        right: -250px;
+    }
+    to{
+        right: 100%;
+    }
+}
+
+
+/*score*/
 
 #score {
     height: 100px;
@@ -200,6 +207,8 @@ body {
     color: #525252;
 }
  
+/*texto*/
+
 #text1 {
     font-family:'Roboto Mono', monospace;
     padding: 50px;
